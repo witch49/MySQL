@@ -121,4 +121,3 @@ CREATE view kor_city as select id, name, district, population from city where co
 SELECT * FROM kor_city;
 SELECT district, name, population FROM kor_city as c1 /* as : aliasing */
  WHERE population > (SELECT avg(population) from kor_city as c2 WHERE c1.district = c2.district group by district);
- 
