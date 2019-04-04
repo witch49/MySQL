@@ -32,3 +32,24 @@ create table bbs (
 select * from bbs;
 desc bbs;
 
+UPDATE bbs SET title='자바강의', content='19년도 하기계절 계획서' where bbs.memberId = 100001;
+
+UPDATE bbs SET title='하이', content='안녕하세요 자바 세상' WHERE memberId=100001 and bbs_id=3;
+
+UPDATE bbs SET title='하이', date=date_format(now(), '%y-%m-%d %H:%i'), content='안녕하세요 자바 세상' WHERE memberId=100001 and bbs_id=3;
+
+insert into bbs (memberId, title, content) values (100001, '자바2','자바2 강의');
+
+insert into bbs (memberId, title, content) values (100005, '박씨','고전소설');
+DELETE from bbs where bbs_id=6 and memberId=100005;
+
+insert into bbs values(1, 100001, '자바 강의안', date_format(now(), '%y-%m-%d %H:%i'), '2019년도 자바 강의 계획안과 ppt 자료입니다.');
+
+/* bbs_id 로 조회 */
+select bbs.bbs_id, member.name, bbs.title, bbs.date, bbs.content
+ from bbs inner join member on bbs.memberId = member.id
+ order by date desc;
+ 
+select bbs.bbs_id, member.name, bbs.title, bbs.date, bbs.content
+ from bbs inner join member on bbs.memberId = member.id
+ where bbs.bbs_id=1;
