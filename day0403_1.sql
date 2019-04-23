@@ -26,7 +26,11 @@ create table bbs (
 	title varchar(50) not null,
 	date datetime not null default current_timestamp,
 	content varchar(400),
+<<<<<<< HEAD
 	FOREIGN KEY (memberId) REFERENCES member(id) on delete cascade
+=======
+	FOREIGN KEY (memberId) REFERENCES member(id) on update cascade
+>>>>>>> 339c77d369a430fcbefe6055d4cc303217fa2967
 ) auto_increment=1 DEFAULT CHARSET=UTF8;
 
 select * from bbs;
